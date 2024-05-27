@@ -16,9 +16,10 @@ minimal: false             # use a dark header
 # Menu
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "/cansu.pdf", title: "CV"}
-  - {title: "Lab", url: "https://atmos.eoas.fsu.edu/fuelberg/"}
+  - {title: "CV", file: "/cansu.pdf"}
+  - {title: "My Lab", url: "https://atmos.eoas.fsu.edu/fuelberg/"}
   - {title: "Blog", file: "blog.md"}
+  - {title: "Publications", file: "pubs.md"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
   - {title: Mail, icon: envelope, url: "mailto:cduzgun@fsu.edu"}
