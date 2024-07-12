@@ -1,1 +1,29 @@
-#I will add my Obsidian notes here.
+---
+title: "Accelerate your note-taking: Obsidian"
+layout: post
+---
+
+# Obsidian Tutorials
+
+## Note #1
+Obsidian is a note-taking application that you can download and install directly from its website as a desktop app. You create files called "vaults," which are essentially folders on your desktop. Each "vault" should contain notes on a specific topic to keep your notes organized. For example, when doing literature research for your thesis, you can use `[[ ]]` to link your notes together. You can view the relationships between your notes as a graph.
+
+## Note #2: The 6 Most Important Markdown Keys
+1. **The Link** ⇒ `[[something]]`
+2. **The Tag** ⇒ `#concept` (you can search for tags: `#concept`, cmd+click?)
+3. **Italics** ⇒ *emphasize something* (single asterisks)
+4. **Bold** ⇒ **Big Nouns** (double asterisks)
+5. **Lists** ⇒ Just put a dash and leave a blank, it’ll start a list (`- `); or number it.
+6. **Headers** ⇒ `# Header-1`; `## Header-2`; `### Header-3`; … you can go further.
+
+## Note #3: The 8 Most Important Settings in Obsidian
+**Gall’s Law:** Gall’s Law states that all complex systems that work evolved from simpler systems that worked. If you want to build a complex system that works, build a simpler system first, and then improve it over time. [Josh Kaufman, personal MBA].
+
+1. **Editor:** Spell check
+2. **Plugin:** Tag Pane (this will create a list of tags)
+3. **Plugin:** Page Preview
+4. **Plugin:** Starred (I guess it is a bookmark)
+5. **File:** Deleted files (goes to the system trash)
+6. **File:** *Always update internal links*
+7. **Appearance:** Dark/Light mode
+8. **Appearance:** Custom CSS (special themes, will be explained in the next notes)
