@@ -3,7 +3,7 @@ title: "Accelerate your note-taking: Obsidian"
 layout: post
 ---
 
-# Obsidian Notes for Beginners
+# Obsidian App Notes for Beginners
 
 ![image](https://github.com/user-attachments/assets/8ee2139e-5efe-4b2d-91ab-c45530ce3e30)
 Photo from [obsidian.md](https://obsidian.md/)
@@ -45,7 +45,7 @@ Obsidian is a note-taking application that you can download and install directly
 - I use ‘Excalidraw’ since you can draw in that template as well! But there are a lot of options, and if you’d like to create one, you can create your own template as well.
 
 ![image](https://github.com/user-attachments/assets/d3eb9cc9-3aa0-40a2-8a77-96d58b362836)
-
+Photo from YT video named [Mind mapping with Excalidraw-Obsidian](https://youtu.be/pWcHBmJLvLc?si=UpFvZG9nda3wYoOA)
 
 ## Note #5: 8 Important Hotkeys
 1. **Open link in edit mode**: `cmd-click on link`
