@@ -39,10 +39,10 @@ Obsidian is a note-taking application that you can download and install directly
 3. Adapt to system
 
 ### Community Plugins
-- Turn on
-- Browse the ‘community plugins’
-- Once you like a theme: download it and enable it
-- I use ‘Excalidraw’ since you can draw in that template as well! But there are a lot of options, and if you’d like to create one, you can create your own template as well.
+- Turn on the 'Community Plugins' from the 'Options' tab of Settings
+- Browse for the ‘community plugins’, you'll see the themes
+- Once you like a theme: download it and then enable it
+- I use ‘Excalidraw’ since you can also draw in that template! But there are many options, and if you’d like to create one, you can also create your own template.
 
 ![image](https://github.com/user-attachments/assets/d3eb9cc9-3aa0-40a2-8a77-96d58b362836)
 Photo from YT video named [Mind mapping with Excalidraw-Obsidian](https://youtu.be/pWcHBmJLvLc?si=UpFvZG9nda3wYoOA)
