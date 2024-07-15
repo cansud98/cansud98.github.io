@@ -6,11 +6,11 @@ layout: post
 # Obsidian Tutorials
 
 ![image](https://github.com/user-attachments/assets/8ee2139e-5efe-4b2d-91ab-c45530ce3e30)
-Photo from ![obsidian.md](https://obsidian.md/)
+Photo from [obsidian.md](https://obsidian.md/)
 
 
 ## Note #1
-Obsidian is a note-taking application that you can download and install directly from its ![website](https://obsidian.md/) as a desktop app. You create files called "vaults," which are essentially folders on your desktop. Each "vault" should contain notes on a specific topic to keep your notes organized. For example, when doing literature research for your thesis, you can use `[[ ]]` to link your notes together. You can view the relationships between your notes as a graph.
+Obsidian is a note-taking application that you can download and install directly from its [website](https://obsidian.md/) as a desktop app. You create files called "vaults," which are essentially folders on your desktop. Each "vault" should contain notes on a specific topic to keep your notes organized. For example, when doing literature research for your thesis, you can use `[[ ]]` to link your notes together. You can view the relationships between your notes as a graph.
 
 ## Note #2: The 6 Most Important Markdown Keys
 1. **The Link** ⇒ `[[something]]`
