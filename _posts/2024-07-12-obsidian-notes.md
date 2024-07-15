@@ -5,12 +5,16 @@ layout: post
 
 # Obsidian Tutorials
 
+![image](https://github.com/user-attachments/assets/8ee2139e-5efe-4b2d-91ab-c45530ce3e30)
+Photo from ![obsidian.md](https://obsidian.md/)
+
+
 ## Note #1
-Obsidian is a note-taking application that you can download and install directly from its website as a desktop app. You create files called "vaults," which are essentially folders on your desktop. Each "vault" should contain notes on a specific topic to keep your notes organized. For example, when doing literature research for your thesis, you can use `[[ ]]` to link your notes together. You can view the relationships between your notes as a graph.
+Obsidian is a note-taking application that you can download and install directly from its ![website](https://obsidian.md/) as a desktop app. You create files called "vaults," which are essentially folders on your desktop. Each "vault" should contain notes on a specific topic to keep your notes organized. For example, when doing literature research for your thesis, you can use `[[ ]]` to link your notes together. You can view the relationships between your notes as a graph.
 
 ## Note #2: The 6 Most Important Markdown Keys
 1. **The Link** ⇒ `[[something]]`
-2. **The Tag** ⇒ `#concept` (you can search for tags: `#concept`, cmd+click?)
+2. **The Tag** ⇒ `#concept` (you can search for tags: `#concept`)
 3. **Italics** ⇒ *emphasize something* (single asterisks)
 4. **Bold** ⇒ **Big Nouns** (double asterisks)
 5. **Lists** ⇒ Just put a dash and leave a blank, it’ll start a list (`- `); or number it.
@@ -39,6 +43,9 @@ Obsidian is a note-taking application that you can download and install directly
 - Browse the ‘community plugins’
 - Once you like a theme: download it and enable it
 - I use ‘Excalidraw’ since you can draw in that template as well! But there are a lot of options, and if you’d like to create one, you can create your own template as well.
+
+![image](https://github.com/user-attachments/assets/d3eb9cc9-3aa0-40a2-8a77-96d58b362836)
+
 
 ## Note #5: 8 Important Hotkeys
 1. **Open link in edit mode**: `cmd-click on link`
