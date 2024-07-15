@@ -27,3 +27,25 @@ Obsidian is a note-taking application that you can download and install directly
 6. **File:** *Always update internal links*
 7. **Appearance:** Dark/Light mode
 8. **Appearance:** Custom CSS (special themes, will be explained in the next notes)
+
+## Note #4: Custom CSS
+### Base Mode
+1. Dark
+2. Light
+3. Adapt to system
+
+### Community Plugins
+- Turn on
+- Browse the ‘community plugins’
+- Once you like a theme: download it and enable it
+- I use ‘Excalidraw’ since you can draw in that template as well! But there are a lot of options, and if you’d like to create one, you can create your own template as well.
+
+## Note #5: 8 Important Hotkeys
+1. **Open link in edit mode**: `cmd-click on link`
+2. **Toggle edit/preview**: `cmd-e`
+3. **Open Quick Switcher**: `cmd-o`
+4. **Search**: `cmd-shift-f`
+5. **Back**: `cmd-opt-leftArrow`
+6. **Forward**: `cmd-opt-rightArrow`
+7. **New note**: `cmd-n`
+8. **Open note in a new window**: `cmd-click on note`
