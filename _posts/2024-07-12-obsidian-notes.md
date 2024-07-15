@@ -3,7 +3,7 @@ title: "Accelerate your note-taking: Obsidian"
 layout: post
 ---
 
-# Obsidian Tutorials
+# Obsidian Notes for Beginners
 
 ![image](https://github.com/user-attachments/assets/8ee2139e-5efe-4b2d-91ab-c45530ce3e30)
 Photo from [obsidian.md](https://obsidian.md/)
