@@ -1,10 +1,5 @@
 ---
-layout: default
+layout: page
 title: "Program"
 ---
-
-{% if site.show_excerpts %}
-  {% include home.html %}
-{% else %}
-  {% include archive.html title="Posts" %}
-{% endif %}
+![image](https://github.com/user-attachments/assets/02ac1b39-ac79-4496-8114-e23e699fbb98)
