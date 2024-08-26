@@ -19,7 +19,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
  # - {title: "CV", file: "/cansu.pdf"}
   - {title: "My Lab", url: "https://atmos.eoas.fsu.edu/fuelberg/"}
  # - {title: "Publications", file: "pubs.md"}
-  - {title: "Program", url: "program.md"}
+  - {title: "Program", file: "program.md"}
   - {title: "Blog", file: "blog.md"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
