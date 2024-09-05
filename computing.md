@@ -26,7 +26,8 @@ Before reading the rest of the guide, I recommend reading the [FSU HPC Overview 
 *** will be updated *** 
 
 ## FSU HPC Access Considerations
-Login Details: FSU HPC is accessed via SSH as follows:
+**Login Details**: FSU HPC is accessed via SSH as follows:
+
 ssh <user>@hpc-login.rcc.fsu.edu
 
 Activities such as compiling model code can be performed on the same node to which you log in or by submitting the compilation to the job scheduler.
