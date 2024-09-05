@@ -28,7 +28,7 @@ Before reading the rest of the guide, I recommend reading the [FSU HPC Overview 
 ## FSU HPC Access Considerations
 **Login Details**: FSU HPC is accessed via SSH as follows:
 
-ssh <user>@hpc-login.rcc.fsu.edu
+ssh <username>@hpc-login.rcc.fsu.edu
 
 Activities such as compiling model code can be performed on the same node to which you log in or by submitting the compilation to the job scheduler.
 
@@ -38,12 +38,12 @@ To download the VPN software, visit [FSU Cisco AnyConnect VPN client](https://it
 
 **Data Transfer**: To transfer data from HPC to your laptop or desktop using sftp or scp, you must directly connect to the disk on which your data are located. This is done as follows:
 
-scp <user>@hpc-login.rcc.fsu.edu:/<path/to/data> </target/file/path>
+scp <username>@hpc-login.rcc.fsu.edu:/<path/to/data> </target/file/path>
 
-where <user> is replaced with your username and <path/to/data> is replaced with the data path (/gpfs/home/cd21q/model; /gpfs/research/eoas/cd21q, etc.) on which your data are located.
+where <username> is replaced with your username and <path/to/data> is replaced with the data path (/gpfs/home/cd21q/model; /gpfs/research/eoas/cd21q, etc.) on which your data are located.
 
 **Visualization**: *** text will be updated *** 
-ssh -Y <user>@hpc-login.rcc.fsu.edu
+ssh -Y <username>@hpc-login.rcc.fsu.edu
 
 # Part-I: Obtaining & Compiling the Model
 
