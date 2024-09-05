@@ -10,11 +10,14 @@ The Florida State University HPC system features over 18,000 and over 700 nodes 
 This webpage contains information about how to set up and run WRF on FSU HPC.
 
 
-# A first-level heading
-## A second-level heading
-### A third-level heading
-
 # Introduction
+
+This guide is prepared to facilitate the basic compilation and execution of WRF-ARW v4.3.3 on FSU HPC. (I will update this page for the new releases of WRF-ARW). For detailed installing and running options beyond this guide, please see: ![WRF User’s Guide -- (ucar.edu)](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html)
+
+Before reading the rest of the guide, I recommend reading the ![FSU HPC Overview & Using the HPC ](https://docs.rcc.fsu.edu/hpc/).
+
+***********************
+*** will be updated *** 
 
 ## What you need to know first
 
