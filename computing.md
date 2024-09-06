@@ -4,20 +4,19 @@ title: "Computing Resources"
 ---
 
 
-This webpage contains information about how to set up and run WRF on FSU HPC.
+This webpage provides information on how to set up and run WRF-ARW on FSU's HPC system.
 
-The Florida State University HPC system features over 18,000 and over 700 nodes providing powerful and scalable HPC resources. My research utilizes the FSU HPC for numerical simulations and data processing related to mesoscale storm modeling.
+The webpage was created to help keep my personal notes organized and to serve as a guide for FSU HPC users.
 
+Florida State University's HPC system features over 18,000 cores and more than 700 nodes, offering powerful and scalable resources. My research utilizes FSU's HPC for numerical simulations and data processing related to mesoscale storm modeling.
 
+***********************
 
 # Introduction
 
-This guide is prepared to facilitate the basic compilation and execution of WRF-ARW v4.3.3 on FSU HPC. (I will update this page for the new releases of WRF-ARW). For detailed installing and running options beyond this guide, please see: [WRF User’s Guide -- (ucar.edu)](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html "website")
+This guide is prepared to facilitate the basic compilation and execution of WRF-ARW v4.3.3 on FSU HPC. (I will update this page for the new releases of WRF-ARW). For detailed installing and running options beyond this guide, please see: [WRF User’s Guide -- (ucar.edu)](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/index.html "website").
 
 Before reading the rest of the guide, I recommend reading the [FSU HPC Overview & Using the HPC ](https://docs.rcc.fsu.edu/hpc/ "website") and getting familiar with it.
-
-***********************
-*** will be updated *** 
 
 ## What you need to know first
 *** will be updated *** 
@@ -25,7 +24,7 @@ Before reading the rest of the guide, I recommend reading the [FSU HPC Overview 
 ## FSU HPC Access Considerations
 **Login Details**: FSU HPC is accessed via SSH as follows:
 
-ssh <username>@hpc-login.rcc.fsu.edu
+ssh <user_name>@hpc-login.rcc.fsu.edu
 
 Activities such as compiling model code can be performed on the same node to which you log in or by submitting the compilation to the job scheduler.
 
@@ -35,12 +34,10 @@ To download the VPN software, visit [FSU Cisco AnyConnect VPN client](https://it
 
 **Data Transfer**: To transfer data from HPC to your laptop or desktop using sftp or scp, you must directly connect to the disk on which your data are located. This is done as follows:
 
-scp <username>@hpc-login.rcc.fsu.edu:/<path/to/data> </target/file/path>
+scp <user_name>@hpc-login.rcc.fsu.edu:/<path/to/data> </target/file/path>
 
-where <username> is replaced with your username and <path/to/data> is replaced with the data path (/gpfs/home/cd21q/model; /gpfs/research/eoas/cd21q, etc.) on which your data are located.
+where <user_name> is replaced with your user name and <path/to/data> is replaced with the data path (/gpfs/home/cd21q/model; /gpfs/research/eoas/cd21q, etc.) on which your data are located.
 
-**Visualization**: *** text will be updated *** 
-ssh -Y <username>@hpc-login.rcc.fsu.edu
 
 # Part-I: Obtaining & Compiling the Model
 
