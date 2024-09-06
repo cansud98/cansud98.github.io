@@ -1,5 +1,3 @@
-***This webpage is currently under construction. Last updated on September 5, 2024.***
-
 ---
 layout: page
 title: "Computing Resources"
