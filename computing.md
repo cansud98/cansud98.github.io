@@ -1,9 +1,10 @@
+***This webpage is currently under construction. Last updated on September 5, 2024.***
+
 ---
 layout: page
 title: "Computing Resources"
 ---
 
-***This webpage is currently under construction. Last updated on September 5, 2024.***
 
 This webpage contains information about how to set up and run WRF on FSU HPC.
 
