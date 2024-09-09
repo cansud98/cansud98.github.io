@@ -28,7 +28,7 @@ ssh <user_name>@hpc-login.rcc.fsu.edu
 
 Activities such as compiling model code can be performed on the same node to which you log in or by submitting the compilation to the job scheduler.
 
-**Remote Access**: HPC is accessible only when on-campus or when using the campus VPN.
+**Remote Access**: HPC is accessible only when on campus or when using the campus VPN.
 
 To download the VPN software, visit [FSU Cisco AnyConnect VPN client](https://its.fsu.edu/services/virtual-private-network?_gl=1%2A16o60xg%2A_ga%2AMTk5OTg1MzQxNy4xNjcwNjA3Njk5%2A_ga_JD6E8L9B8V%2AMTcyNTU2MTMyOC4xMC4xLjE3MjU1NjEzMzYuNTIuMC4w "website"), and for further details please check [this link](https://servicecenter.fsu.edu/s/article/How-do-I-connect-to-the-HPC-or-other-RCC-resources-from-off-campus "website").
 
