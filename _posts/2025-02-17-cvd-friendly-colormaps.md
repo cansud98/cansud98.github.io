@@ -17,7 +17,7 @@ _"Based on available data, the AMS: Monthly Weather Review is estimated to have 
 
 Assuming that 5% of meteorologists are interested in your paper's topic, approximately 3,000 to 4,000 people will likely view your work (which is definitely on the higher end of the estimate!). Given that 3.8% of the world population has color vision deficiency, an estimated 114 to 152 readers of your paper might face difficulties interpreting your figures if they are not designed with color accessibility in mind. This could hinder their understanding and potentially reduce the likelihood of them linking your work to theirs.
 
-That's why ensuring that your figures use CVD-friendly palettes is a crucial step in maximizing the reach, impact, and inclusivity of your scientific research, as a second option, including CVD-friendly figures as supplementary material can be considered.
+That's why ensuring that your figures use CVD-friendly colorbars is a crucial step in maximizing the reach, impact, and inclusivity of your scientific research, as a second option, including CVD-friendly figures as supplementary material can be considered.
 
 
 ## Which Colorbars Can You Use?
