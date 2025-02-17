@@ -11,7 +11,7 @@ According to the American Optometric Association [(AOA)](https://www.aoa.org/hea
 According to [Colour Blind Awareness](https://www.colourblindawareness.org/), approximately 3.8% of the world population has color vision deficiency, with about 4.4% in Europe and 3.7% in the United States, based on their respective population sizes.
 
 ## Why Does This Matter in Research?
-Imagine publishing a paper in the field of meteorology, specifically in the American Meteorological Society: Monthly Weather Review [(AMS:MWR)](https://www.ametsoc.org/index.cfm/ams/publications/journals/monthly-weather-review/). When I used the most popular LLM model (ChatGPT) for a quick calculation of reader count:
+Imagine publishing a paper in the field of meteorology, specifically in the American Meteorological Society: Monthly Weather Review [(AMS:MWR)](https://www.ametsoc.org/index.cfm/ams/publications/journals/monthly-weather-review/). When I used the most popular LLM application (ChatGPT) for a quick calculation of reader count:
 
 _"Based on available data, the AMS: Monthly Weather Review is estimated to have an annual readership of approximately *60,000 to 80,000*. This estimate considers nearly 12,000 AMS members with access to the journal, 32,787 citations of its articles in a single year, and an additional 20,000 to 30,000 readers from university libraries, research institutions, and online platforms. With an impact factor of 2.8 and an average of 142 citations per article, the journal maintains a significant presence within the meteorology and atmospheric science community, attracting researchers, professionals, and students worldwide."_
 
