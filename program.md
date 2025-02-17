@@ -7,4 +7,4 @@ Please contact me if you have any questions about the graduate program at Florid
 
 Please see my program below and email "cduzgun@fsu.edu" to schedule a meeting. 
 
-[program.pdf](https://github.com/user-attachments/files/18832526/program.pdf)
+![program](https://github.com/user-attachments/assets/5ac16dc1-2a78-49c7-8636-304ff7df72be)
