@@ -60,6 +60,6 @@ Photo from YT video named [Mind mapping with Excalidraw-Obsidian](https://youtu.
 
 <!-- BEGIN COMMENT -->
 
-[Home](https://cansud98.github.io/blog/) - [Next Post >>](2025-02-17-cvd-friendly-colormaps.md)
+[Home](https://cansud98.github.io/blog/) - [Next Post >>](https://cansud98.github.io/cvd-friendly-colormaps/)
 
 <!-- END COMMENT -->
