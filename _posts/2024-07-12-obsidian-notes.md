@@ -56,3 +56,10 @@ Photo from YT video named [Mind mapping with Excalidraw-Obsidian](https://youtu.
 6. **Forward**: `cmd-opt-rightArrow`
 7. **New note**: `cmd-n`
 8. **Open note in a new window**: `cmd-click on note`
+
+
+<!-- BEGIN COMMENT -->
+
+[Home](https://cansud98.github.io/blog/) - [Next Post >>](2025-02-17-cvd-friendly-colormaps.md)
+
+<!-- END COMMENT -->
