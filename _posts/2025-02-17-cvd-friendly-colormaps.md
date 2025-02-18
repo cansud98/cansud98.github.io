@@ -36,3 +36,8 @@ Figure from [Sherman's talk](https://ams.confex.com/ams/105ANNUAL/meetingapp.cgi
 
 To sum up, I can say that incorporating CVD-friendly colormaps into your research visuals is a small yet impactful change that enhances accessibility and inclusivity. As scientists (or _scientists-to-be_), our goal is to communicate our findings as clearly as possible to the widest audience. With tools like the **cmweather** package now available, there’s no excuse not to make our figures accessible to everyone!
 
+<!-- BEGIN COMMENT -->
+
+[Previous Post >>](https://cansud98.github.io/obsidian-notes/) - [Home](https://cansud98.github.io/blog/)
+
+<!-- END COMMENT -->
