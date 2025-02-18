@@ -38,6 +38,6 @@ To sum up, I can say that incorporating CVD-friendly colormaps into your researc
 
 <!-- BEGIN COMMENT -->
 
-[Previous Post >>](https://cansud98.github.io/obsidian-notes/) - [Home](https://cansud98.github.io/blog/)
+[<< Previous Post](https://cansud98.github.io/obsidian-notes/) - [Home](https://cansud98.github.io/blog/)
 
 <!-- END COMMENT -->
