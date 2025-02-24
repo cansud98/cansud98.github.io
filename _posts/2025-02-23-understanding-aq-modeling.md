@@ -22,11 +22,11 @@ CTMs vary in scale, each serving unique purposes:
 
 
 | Medium/Small-Scale Models | Regional-Scale Models | Global-Scale Models |
-|------------------|------------------|-----------------|
-| ISC3             | CAMx             | MOZART    |
-| ADMS             | CMAQ             | GEOS-Chem   |
-| AERMOD           | WRF-Chem         |   |
-| CALPUFF          | NAQPMS           |   |
+|---------------------------|-----------------------|---------------------|
+| ISC3                      | CAMx                  | MOZART              |
+| ADMS                      | CMAQ                  | GEOS-Chem           |
+| AERMOD                    | WRF-Chem              |                     |
+| CALPUFF                   | NAQPMS                |                     |
 
 
 # Evolution of CTMs: From Basic Trajectories to Complex Systems
