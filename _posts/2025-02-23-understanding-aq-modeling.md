@@ -33,7 +33,8 @@ CTMs vary in scale, each serving unique purposes:
 
 The development of CTMs has progressed through three generations:
 
-![CTM_timeline](https://github.com/user-attachments/assets/3c7dbe13-12fe-44c2-8d42-12f54ecb6158)
+![CTM timeline](https://github.com/user-attachments/assets/f05211a0-a15a-46db-8fcd-3e7479475be8)
+
 
 
 # Key Features and Challenges of Regional CTMs
