@@ -33,14 +33,8 @@ CTMs vary in scale, each serving unique purposes:
 
 The development of CTMs has progressed through three generations:
 
-## * 1st Generation (1970s-1980s)
-Focused on simple air parcel trajectories and linear relationships, using models like the Lagrangian trajectory model.
+![CTM_timeline](https://github.com/user-attachments/assets/3c7dbe13-12fe-44c2-8d42-12f54ecb6158)
 
-## * 2nd Generation (1980s-1990s)
-Introduced meteorological modules and non-linear mechanisms, exemplified by the Euler grid model.
-
-## * 3rd Generation (Present)
-Regional CTMs like CAMx, CMAQ, and WRF-Chem incorporate complex chemical interactions, land surface processes, and real-world conditions, overcoming past limitations and enhancing predictive accuracy.
 
 # Key Features and Challenges of Regional CTMs
 
