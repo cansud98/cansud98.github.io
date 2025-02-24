@@ -3,7 +3,8 @@ title: "A Guide to Understanding Air Quality Modeling"
 layout: post
 ---
 
-Air quality modeling is a complex, yet essential, tool in understanding the interactions between meteorology and atmospheric pollutants. Chemical Transport Models (CTMs) serve as the backbone of this field, enabling researchers and policymakers to predict pollutant behaviors, assess environmental impacts, and guide regulatory decisions. This post dives into the evolution, types, and intricacies of CTMs, based on insights from the comprehensive review by Gao & Zhou (2024) doi:[10.1016/j.envpol.2023.123183](https://doi.org/10.1016/j.envpol.2023.123183).
+Air quality modeling is a complex, yet essential, tool in understanding the interactions between meteorology and
+atmospheric pollutants. Chemical Transport Models (CTMs) serve as the backbone of this field, enabling researchers and policymakers to predict pollutant behaviors, assess environmental impacts, and guide regulatory decisions. This post dives into the evolution, types, and intricacies of CTMs, based on insights from the comprehensive review by Gao & Zhou (2024), doi:[10.1016/j.envpol.2023.123183](https://doi.org/10.1016/j.envpol.2023.123183).
 
 # What Are Chemical Transport Models (CTMs)?
 
@@ -12,6 +13,13 @@ CTMs are sophisticated tools designed to simulate the transport, dispersion, tra
 # Types of CTMs: From Local to Global
 
 CTMs vary in scale, each serving unique purposes:
+
+| Medium/Small-Scale Models | Regional-Scale Models | Global-Scale Models |
+|------------------|------------------|-----------------|
+| ISC3             | CAMx             | MOZART    |
+| ADMS             | CMAQ             | GEOS-Chem   | 
+| AERMOD           | WRF-Chem         |   |
+| CALPUFF          | NAQPMS           |   |
 
 ## 1. Medium/Small-Scale Models
 These models focus on local air quality assessments, such as urban pollution and industrial emissions.
