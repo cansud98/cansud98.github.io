@@ -14,36 +14,19 @@ CTMs are sophisticated tools designed to simulate the transport, dispersion, tra
 
 CTMs vary in scale, each serving unique purposes:
 
+1. *Medium/Small-Scale Models:* These models focus on local air quality assessments, such as urban pollution and industrial emissions.
+
+2. *Regional-Scale Models:* Designed to capture broader geographic influences, regional CTMs integrate complex meteorological data and chemical reactions.
+
+3. *Global-Scale Models:* These models analyze atmospheric processes on a planetary scale, crucial for studying transboundary pollution and climate interactions.
+
+
 | Medium/Small-Scale Models | Regional-Scale Models | Global-Scale Models |
 |------------------|------------------|-----------------|
 | ISC3             | CAMx             | MOZART    |
-| ADMS             | CMAQ             | GEOS-Chem   | 
+| ADMS             | CMAQ             | GEOS-Chem   |
 | AERMOD           | WRF-Chem         |   |
 | CALPUFF          | NAQPMS           |   |
-
-## 1. Medium/Small-Scale Models
-These models focus on local air quality assessments, such as urban pollution and industrial emissions.
-
-- ISC3
-- ADMS
-- AERMOD
-- CALPUFF
-
-
-## 2. Regional-Scale Models
-Designed to capture broader geographic influences, regional CTMs integrate complex meteorological data and chemical reactions.
-
-- CAMx
-- CMAQ
-- WRF-Chem (known for its online coupling with meteorological models)
-- NAQPMS
-
-
-## 3. Global-Scale Models
-These models analyze atmospheric processes on a planetary scale, crucial for studying transboundary pollution and climate interactions.
-
-- MOZART
-- GEOS-Chem
 
 
 # Evolution of CTMs: From Basic Trajectories to Complex Systems
