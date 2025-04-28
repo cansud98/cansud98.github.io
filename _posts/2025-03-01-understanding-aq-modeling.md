@@ -33,14 +33,8 @@ CTMs vary in scale, each serving unique purposes:
 
 The development of CTMs has progressed through three generations:
 
-## * 1st Generation (1970s-1980s)
-Focused on simple air parcel trajectories and linear relationships, using models like the Lagrangian trajectory model.
+![CTM timeline](https://github.com/user-attachments/assets/f05211a0-a15a-46db-8fcd-3e7479475be8)
 
-## * 2nd Generation (1980s-1990s)
-Introduced meteorological modules and non-linear mechanisms, exemplified by the Euler grid model.
-
-## * 3rd Generation (Present)
-Regional CTMs like CAMx, CMAQ, and WRF-Chem incorporate complex chemical interactions, land surface processes, and real-world conditions, overcoming past limitations and enhancing predictive accuracy.
 
 # Key Features and Challenges of Regional CTMs
 
@@ -63,23 +57,7 @@ The choice of CTM depends on the pollutant and research focus:
 - WRF-Chem is preferred for studies involving CO, CO₂, and VOCs due to its online coupling capabilities.
 - CMAQ is often used for analyzing ozone (O₃) and secondary organic aerosols (SOA), particularly when public health impacts are a concern.
 
-# Evaluating CTM Performance: Statistical Test Indicators
-
-Assessing a CTM's accuracy involves various statistical metrics:
-
-- Mean Bias (MB)
-- Normalized Mean Bias (NMB)
-- Root Mean Square Error (RMSE)
-- Correlation Coefficients (R)
-
-~~ o ~~
-
-High-resolution grids generally yield better results, especially in localized air quality assessments. However, factors such as source emission inventories, meteorological inputs, and gas-phase chemistry also play critical roles in model performance.
-
-Chemical Transport Models are invaluable for advancing our understanding of atmospheric pollution and informing environmental policy. As these models continue to evolve, they will provide even more precise insights into the intricate dance between meteorology and pollutants.
-
-Whether you're a researcher, policymaker, or simply curious about air quality, CTMs offer a powerful lens through which to view our dynamic atmosphere.
-
+>> Keep in mind: High-resolution grids generally yield better results, especially in localized air quality assessments. However, factors such as source emission inventories, meteorological inputs, and gas-phase chemistry also play critical roles in model performance.
 
 
 # Note
