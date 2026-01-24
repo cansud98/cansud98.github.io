@@ -17,8 +17,8 @@ I am originally from Turkey and enjoy painting, playing tennis, and cooking. Ple
 
 
 **How to pronounce my name?**
-Turkish C = English J
-Like ‘J’ in jazz.
+Turkish C = English J  
+Like ‘J’ in jazz.  
 You can think at is as Jansu, or John+Sue! : )
 
 **How does CO travel to stratosphere within a deep convective core?**
