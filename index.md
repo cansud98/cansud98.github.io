@@ -19,7 +19,7 @@ I am originally from Turkey and enjoy painting, playing tennis, and cooking. Ple
 **How to pronounce my name?**  
 Turkish C = English J  
 Like ‘J’ in jazz.  
-You can think at is as Jansu, or John+Sue! : )
+You can think of it as 'Jansu', or 'John+Sue' : )
 
 **How does CO travel to stratosphere within a deep convective core?**  
 Check out [my latest publication](https://doi.org/10.1175/MWR-D-25-0113.1) (also see ['Publications'](https://cansud98.github.io/pubs/) tab) to learn about this! Also see the animation below that shows mid-tropospheric air mixing into the updraft and diluting the CO mixing ratio within the updraft. A bonus is seeing how the simulated tropopause responds to strong updrafts!
