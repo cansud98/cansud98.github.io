@@ -13,8 +13,7 @@ I am a Ph.D. Candidate in the [Department of Earth, Ocean and Atmospheric Scienc
 I am originally from Turkey and enjoy painting, playing tennis, and cooking. Please contact me if you have any questions about the graduate program at Florida State, my research, life as a graduate student, being an international student at FSU, or anything else!
 
 **My CV**  
-[CansuDuzgun_CV.pdf](https://github.com/user-attachments/files/24839605/CansuDuzgun_CV.pdf)
-
+[CansuDuzgun_CV.pdf](https://github.com/user-attachments/files/24901094/CansuDuzgun_CV.pdf)
 
 **How to pronounce my name?**  
 Turkish C = English J  
