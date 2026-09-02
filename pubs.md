@@ -3,7 +3,7 @@ layout: default
 title: "Publications"
 ---
 
-<div style="margin-left: 40px; margin-right: 40px;">
+<div style="margin-left: 40px; margin-right: 40px; margin-top: 30px;">
 
 <b> List of publications: </b>
 
