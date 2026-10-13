@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Wants to Be a Millionaire? Meteorology Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b16; --bg2:#0d1630; --panel:#111c3a; --panel2:#17254b;
+  --line:#2a3c70; --text:#e8eeff; --muted:#93a3cc;
+  --accent:#38bdf8; --gold:#fbbf24; --good:#22c55e; --bad:#ef4444;
+  --sel:#f59e0b; --radius:14px;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  min-height:100vh; background-attachment:fixed; overflow-x:hidden; color:var(--text); font-family:Inter,system-ui,sans-serif;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, #1e3a8a55, transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, #0e749055, transparent 60%),
+    var(--bg);
+}
+h1,h2,h3,.display{font-family:"Space Grotesk",Inter,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 40px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{flex:none}
+.brand h1{font-size:clamp(18px,3vw,26px);margin:0;line-height:1.1}
+.brand small{display:block;color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px}
+.hidden{display:none!important}
+
+/* ---------- layout ---------- */
+.game{display:grid;grid-template-columns:1fr 280px;gap:18px}
+.game>*{min-width:0}
+@media (max-width:860px){.game{grid-template-columns:1fr}.ladder{order:-1}}
+
+.card{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:#0b1430;color:var(--muted)}
+.chip.cat{color:var(--accent);border-color:#1f6f99}
+.chip.tier{color:var(--gold);border-color:#7a5b12}
+
+.timer{position:relative;width:58px;height:58px;flex:none}
+.timer svg{transform:rotate(-90deg)}
+.timer span{position:absolute;inset:0;display:grid;place-items:center;font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-weight:700;font-size:18px}
+.timer.warn span{color:var(--bad)}
+
+/* ---------- question ---------- */
+.question{font-size:clamp(17px,2.2vw,21px);line-height:1.45;font-weight:500;margin:6px 0 18px;min-height:3em}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:600px){.options{grid-template-columns:1fr}}
+.opt{
+  display:flex;gap:10px;align-items:flex-start;text-align:left;
+  background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+  transition:transform .12s, border-color .12s, background .2s;
+}
+.opt:hover:not(:disabled){border-color:var(--accent);transform:translateY(-1px)}
+.opt .k{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-weight:700;color:var(--gold);min-width:1.2em}
+.opt:disabled{cursor:default}
+.opt.gone{visibility:hidden}
+.opt.sel{background:#4a3205;border-color:var(--sel)}
+.opt.right{background:#0f3d24;border-color:var(--good)}
+.opt.wrong{background:#4a1111;border-color:var(--bad)}
+.opt.right .k,.opt.wrong .k{color:var(--text)}
+
+/* ---------- lifelines ---------- */
+.lifelines{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.life{
+  display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--line);background:#0b1430;font-size:14px;font-weight:600
+}
+.life:hover:not(:disabled){border-color:var(--accent)}
+.life:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.walk{margin-left:auto;border-color:#7a5b12;color:var(--gold)}
+
+/* ---------- feedback ---------- */
+.feedback{margin-top:16px;border-radius:12px;padding:14px 16px;border:1px solid var(--line);background:#0b1430}
+.feedback.good{border-color:var(--good)}
+.feedback.bad{border-color:var(--bad)}
+.feedback h3{margin:0 0 6px;font-size:16px}
+.feedback p{margin:0 0 12px;color:#cbd5f5;line-height:1.5;font-size:15px}
+.btn{background:var(--accent);color:#04121f;border:0;border-radius:10px;padding:10px 18px;font-weight:700}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+
+/* ---------- ladder ---------- */
+.ladder{padding:12px}
+.ladder ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column-reverse;gap:3px}
+.ladder li{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;border-radius:8px;font-size:14px;color:var(--muted)}
+.ladder li .n{width:2em;color:#5d6d99}
+.ladder li .amt{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-weight:600}
+.ladder li.safe{color:var(--text)}
+.ladder li.safe .amt::after{content:" ◆";color:var(--gold);font-size:11px}
+.ladder li.done{color:#4ade80}
+.ladder li.now{background:var(--sel);color:#1a1000}
+.ladder li.now .n{color:#1a1000}
+.tierlabel{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:8px 10px 2px}
+@media (max-width:860px){
+  .ladder ol{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px}
+  .ladder li{flex:none;flex-direction:column;gap:2px;padding:6px 8px;font-size:12px}
+  .ladder li .n{width:auto}
+  .ladder li.tierlabel{display:none}
+}
+
+/* ---------- modal ---------- */
+.overlay{position:fixed;inset:0;background:#000a;display:grid;place-items:center;padding:16px;z-index:10}
+.modal{max-width:520px;width:100%;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.modal h2{margin:0 0 4px;font-size:20px}
+.modal .sub{color:var(--muted);font-size:13px;margin-bottom:14px}
+.quote{font-size:17px;line-height:1.5;padding:14px 16px;border-left:3px solid var(--accent);background:#0b1430;border-radius:0 10px 10px 0;margin-bottom:16px}
+.picks{display:grid;gap:10px;margin-bottom:6px}
+.pickx{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1430}
+.pickx:hover{border-color:var(--accent)}
+.pickx b{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:16px}
+.pickx span{color:var(--muted);font-size:13px;line-height:1.4}
+.ringing{display:flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:12px}
+.dots span{display:inline-block;width:7px;height:7px;margin-right:4px;border-radius:50%;background:var(--accent);animation:b 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes b{0%,100%{opacity:.2}50%{opacity:1}}
+.poll{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:end;height:180px;margin:10px 0 18px}
+.bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.bar .fill{width:70%;background:linear-gradient(180deg,var(--accent),#1d4ed8);border-radius:6px 6px 0 0;transition:height .9s ease}
+.bar .pct{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-weight:700;font-size:14px}
+.bar .lab{font-family:"Space Grotesk",Inter,system-ui,sans-serif;color:var(--gold);font-weight:700}
+
+/* ---------- start / end ---------- */
+.hero{text-align:center;padding:38px 22px}
+.hero h2{font-size:clamp(26px,5vw,44px);margin:6px 0 10px;line-height:1.1}
+.hero p{color:var(--muted);max-width:640px;margin:0 auto 14px;line-height:1.6}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:860px;margin:22px auto;text-align:left}
+.rules div{background:#0b1430;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;color:#cbd5f5;line-height:1.45}
+.rules b{display:block;color:var(--text);margin-bottom:4px;font-family:"Space Grotesk"}
+.prize{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:clamp(34px,7vw,64px);font-weight:700;color:var(--gold);margin:8px 0}
+footer{margin-top:28px;color:#5d6d99;font-size:12px;text-align:center;line-height:1.6}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" fill="none" stroke="#2a3c70" stroke-width="2"/>
+        <circle cx="24" cy="24" r="14" fill="none" stroke="#2a3c70" stroke-width="2"/>
+        <path d="M24 24 L24 2 A22 22 0 0 1 43 13 Z" fill="#38bdf833"/>
+        <path d="M18 30c-4 0-6-3-5-6 1-3 4-4 6-3 1-4 5-6 9-5 4 1 6 5 5 8 3 0 5 2 4 5-1 2-3 2-4 2z" fill="#e8eeff"/>
+        <path d="M23 31l-3 7h4l-2 6 7-9h-4l2-4z" fill="#fbbf24"/>
+      </svg>
+      <div><small>Meteorology Edition</small><h1>Who Wants to Be a Millionaire?</h1></div>
+    </div>
+  </header>
+
+  <!-- START -->
+  <section id="start" class="card hero">
+    <small style="color:var(--accent);letter-spacing:.1em;text-transform:uppercase;font-weight:600">From intro met to Ph.D. quals</small>
+    <h2>Fifteen questions between you and a million dollars.</h2>
+    <p>Questions get harder as you climb: undergrad basics, then M.S.-level dynamics and physics, then the papers your committee expects you to have read. Each game draws a fresh set from the question bank.</p>
+    <div class="rules">
+      <div><b>📞 Phone an Expert</b>Three experts are available. Pick who to call. On their home turf they are never wrong. Far from it, they hedge, and very occasionally they miss.</div>
+      <div><b>🎓 Ask the Grad Students</b>The cohort votes. Reliable early on, shakier near the top, and sometimes drawn to a classic misconception.</div>
+      <div><b>✂️ 50:50</b>Two wrong answers disappear.</div>
+      <div><b>◆ Safe havens</b>Q5 ($1,000) and Q10 ($32,000) are guaranteed. A wrong answer or running out of time drops you to the last one you passed. You can walk away at any time.</div>
+    </div>
+    <button class="btn" id="startBtn" style="font-size:17px;padding:13px 28px">Start the game</button>
+    <p style="margin-top:14px;font-size:13px">Keyboard: A / B / C / D to answer, Enter to continue</p>
+  </section>
+
+  <!-- GAME -->
+  <section id="game" class="game hidden">
+    <div class="card">
+      <div class="topbar">
+        <div class="chips">
+          <span class="chip tier" id="tierChip"></span>
+          <span class="chip cat" id="catChip"></span>
+          <span class="chip" id="forChip"></span>
+        </div>
+        <div class="timer" id="timer">
+          <svg width="58" height="58" viewBox="0 0 58 58">
+            <circle cx="29" cy="29" r="25" fill="none" stroke="#2a3c70" stroke-width="5"/>
+            <circle id="timerArc" cx="29" cy="29" r="25" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" stroke-dasharray="157.08" stroke-dashoffset="0"/>
+          </svg>
+          <span id="timerTxt">30</span>
+        </div>
+      </div>
+      <div class="question" id="qText"></div>
+      <div class="options" id="options"></div>
+
+      <div class="lifelines" id="lifelines">
+        <button class="life" id="l5050">✂️ 50:50</button>
+        <button class="life" id="lPhone">📞 Phone an Expert</button>
+        <button class="life" id="lAud">🎓 Ask the Grad Students</button>
+        <button class="life walk" id="walkBtn">🚶 Walk away</button>
+      </div>
+
+      <div class="feedback hidden" id="feedback">
+        <h3 id="fbTitle"></h3>
+        <p id="fbText"></p>
+        <button class="btn" id="nextBtn">Next question</button>
+      </div>
+    </div>
+
+    <aside class="card ladder">
+      <ol id="ladder"></ol>
+    </aside>
+  </section>
+
+  <!-- END -->
+  <section id="end" class="card hero hidden">
+    <small id="endKicker" style="color:var(--accent);letter-spacing:.1em;text-transform:uppercase;font-weight:600"></small>
+    <h2 id="endTitle"></h2>
+    <div class="prize" id="endPrize"></div>
+    <p id="endText"></p>
+    <button class="btn" id="againBtn">Play again</button>
+  </section>
+
+  <footer>
+    A fan-made educational game for meteorology students. It is not affiliated with any TV show or with the scientists named.<br>
+    The expert lifelines are fictional, auto-generated answers and are not real quotes.
+  </footer>
+</div>
+
+<!-- MODAL -->
+<div class="overlay hidden" id="overlay"><div class="modal" id="modal"></div></div>
+
+<script src="questions.js"></script>
+<script src="experts.js"></script>
+<script>
+(() => {
+  "use strict";
+
+  // ---------- config ----------
+  const PRIZES = [100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000];
+  const SAFE = [4, 9];                              // zero-based indices (Q5, Q10)
+  const TIERS = ["Undergrad", "M.S.", "Ph.D. Quals"];
+  const TIME = [30, 45, 60];                        // seconds per tier
+  const LETTERS = ["A", "B", "C", "D"];
+
+  const $ = id => document.getElementById(id);
+  const rand = n => Math.floor(Math.random() * n);
+  const pick = arr => arr[rand(arr.length)];
+  const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rand(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const money = v => "$" + v.toLocaleString("en-US");
+  const tierOf = lvl => Math.min(2, Math.floor(lvl / 5));
+
+  // ---------- state ----------
+  let S = null;
+
+  function newGame() {
+    const set = [];
+    for (let lvl = 1; lvl <= 15; lvl++) {
+      let pool = QUESTIONS.filter(q => q.level === lvl);
+      if (!pool.length) pool = QUESTIONS;              // fallback if a level is empty
+      const q = pick(pool);
+      // shuffle options, remember where the answer and the trap went
+      const order = shuffle([0, 1, 2, 3]);
+      set.push({
+        ...q,
+        opts: order.map(i => q.options[i]),
+        correct: order.indexOf(q.answer),
+        trapIdx: q.trap === undefined ? -1 : order.indexOf(q.trap)
+      });
+    }
+    S = { set, i: 0, used: { fifty: false, phone: false, aud: false }, removed: new Set(),
+          locked: false, timeLeft: 0, timerId: null, paused: false };
+    buildLadder();
+    show("game");
+    renderQuestion();
+  }
+
+  // ---------- views ----------
+  function show(id) { ["start", "game", "end"].forEach(s => $(s).classList.toggle("hidden", s !== id)); }
+
+  function buildLadder() {
+    const ol = $("ladder"); ol.innerHTML = "";
+    PRIZES.forEach((p, k) => {
+      const li = document.createElement("li");
+      li.id = "rung" + k;
+      if (SAFE.includes(k)) li.classList.add("safe");
+      li.innerHTML = `<span class="n">${k + 1}</span><span class="amt">${money(p)}</span>`;
+      ol.appendChild(li);
+      if (k % 5 === 4) {               // label sits above its tier (list renders bottom-up)
+        const t = document.createElement("li");
+        t.className = "tierlabel"; t.textContent = TIERS[(k - 4) / 5];
+        ol.appendChild(t);
+      }
+    });
+  }
+
+  function updateLadder() {
+    PRIZES.forEach((_, k) => {
+      const li = $("rung" + k);
+      li.classList.toggle("done", k < S.i);
+      li.classList.toggle("now", k === S.i);
+    });
+    $("rung" + S.i).scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+  }
+
+  function renderQuestion() {
+    const q = S.set[S.i];
+    S.locked = false; S.removed = new Set();
+    $("tierChip").textContent = `Q${S.i + 1} · ${TIERS[tierOf(S.i)]}`;
+    $("catChip").textContent = q.category;
+    $("forChip").textContent = "For " + money(PRIZES[S.i]);
+    $("qText").textContent = q.q;
+    const box = $("options"); box.innerHTML = "";
+    q.opts.forEach((t, k) => {
+      const b = document.createElement("button");
+      b.className = "opt"; b.dataset.k = k;
+      b.innerHTML = `<span class="k">${LETTERS[k]}</span><span></span>`;
+      b.lastChild.textContent = t;
+      b.onclick = () => choose(k);
+      box.appendChild(b);
+    });
+    $("feedback").classList.add("hidden");
+    $("l5050").disabled = S.used.fifty;
+    $("lPhone").disabled = S.used.phone;
+    $("lAud").disabled = S.used.aud;
+    $("walkBtn").disabled = false;
+    updateLadder();
+    startTimer(TIME[tierOf(S.i)]);
+  }
+
+  // ---------- timer ----------
+  function startTimer(sec) {
+    clearInterval(S.timerId);
+    S.timeLeft = sec; S.timeMax = sec; S.paused = false;
+    drawTimer();
+    S.timerId = setInterval(() => {
+      if (S.paused || S.locked) return;
+      S.timeLeft--;
+      drawTimer();
+      if (S.timeLeft <= 0) { clearInterval(S.timerId); timeUp(); }
+    }, 1000);
+  }
+  function drawTimer() {
+    const frac = Math.max(0, S.timeLeft / S.timeMax);
+    $("timerArc").style.strokeDashoffset = (157.08 * (1 - frac)).toFixed(2);
+    $("timerTxt").textContent = Math.max(0, S.timeLeft);
+    $("timer").classList.toggle("warn", S.timeLeft <= 10);
+    $("timerArc").style.stroke = S.timeLeft <= 10 ? "var(--bad)" : "var(--accent)";
+  }
+
+  // ---------- answering ----------
+  function optBtn(k) { return $("options").children[k]; }
+
+  function lockUI() {
+    S.locked = true; clearInterval(S.timerId);
+    [...$("options").children].forEach(b => b.disabled = true);
+    ["l5050", "lPhone", "lAud", "walkBtn"].forEach(id => $(id).disabled = true);
+  }
+
+  function choose(k) {
+    if (S.locked || S.removed.has(k)) return;
+    lockUI();
+    const q = S.set[S.i];
+    optBtn(k).classList.add("sel");
+    setTimeout(() => {
+      optBtn(k).classList.remove("sel");
+      optBtn(q.correct).classList.add("right");
+      if (k === q.correct) {
+        const last = S.i === 14;
+        feedback(true, last ? "🏆 Correct, and that's the million!" : `Correct! You now have ${money(PRIZES[S.i])}.`,
+                 q.explanation, last ? "Claim your million" : "Next question",
+                 () => { if (last) endGame("win"); else { S.i++; renderQuestion(); } });
+      } else {
+        optBtn(k).classList.add("wrong");
+        feedback(false, `Not quite. The answer was ${LETTERS[q.correct]}.`, q.explanation, "See results", () => endGame("wrong"));
+      }
+    }, 1100);
+  }
+
+  function timeUp() {
+    if (S.locked) return;
+    lockUI();
+    const q = S.set[S.i];
+    optBtn(q.correct).classList.add("right");
+    feedback(false, `⏱ Time's up! The answer was ${LETTERS[q.correct]}.`, q.explanation, "See results", () => endGame("time"));
+  }
+
+  function walkAway() {
+    if (S.locked) return;
+    lockUI();
+    const q = S.set[S.i];
+    optBtn(q.correct).classList.add("right");
+    feedback(true, `You walked away. For the record, it was ${LETTERS[q.correct]}.`, q.explanation, "See results", () => endGame("walk"));
+  }
+
+  let nextAction = null;
+  function feedback(good, title, text, btnLabel, action) {
+    const fb = $("feedback");
+    fb.className = "feedback " + (good ? "good" : "bad");
+    $("fbTitle").textContent = title;
+    $("fbText").textContent = text;
+    $("nextBtn").textContent = btnLabel;
+    nextAction = action;
+    fb.classList.remove("hidden");
+    fb.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    $("nextBtn").focus({ preventScroll: true });
+  }
+  $("nextBtn").onclick = () => { if (nextAction) { const a = nextAction; nextAction = null; a(); } };
+
+  function safeAmount() {
+    let amt = 0;
+    SAFE.forEach(s => { if (S.i > s) amt = PRIZES[s]; });
+    return amt;
+  }
+
+  function endGame(how) {
+    clearInterval(S.timerId);
+    let prize, kicker, title, text;
+    if (how === "win") {
+      prize = PRIZES[14]; kicker = "Defended, published, funded";
+      title = "You're a meteorology millionaire!";
+      text = "Fifteen for fifteen. Your committee has no further questions.";
+    } else if (how === "walk") {
+      prize = S.i > 0 ? PRIZES[S.i - 1] : 0; kicker = "A wise forecaster knows the uncertainty";
+      title = "You walked away with";
+      text = `You stopped at question ${S.i + 1} (${S.set[S.i].category}).`;
+    } else {
+      prize = safeAmount(); kicker = how === "time" ? "The clock ran out" : "Game over";
+      title = prize ? "You leave with your safe haven" : "Back to the textbooks";
+      text = `You reached question ${S.i + 1} (${TIERS[tierOf(S.i)]} tier, ${S.set[S.i].category}).`;
+    }
+    $("endKicker").textContent = kicker;
+    $("endTitle").textContent = title;
+    $("endPrize").textContent = money(prize);
+    $("endText").textContent = text;
+    show("end");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // ---------- modal ----------
+  function openModal(html) {
+    S.paused = true;
+    $("modal").innerHTML = html;
+    $("overlay").classList.remove("hidden");
+  }
+  function closeModal() {
+    $("overlay").classList.add("hidden");
+    S.paused = false;
+  }
+  $("overlay").addEventListener("click", e => { if (e.target.id === "overlay" || e.target.dataset.close !== undefined) closeModal(); });
+
+  // ---------- lifelines ----------
+  function fifty() {
+    if (S.locked || S.used.fifty) return;
+    S.used.fifty = true; $("l5050").disabled = true;
+    const q = S.set[S.i];
+    const wrong = shuffle([0, 1, 2, 3].filter(k => k !== q.correct && !S.removed.has(k)));
+    wrong.slice(0, 2).forEach(k => { S.removed.add(k); optBtn(k).classList.add("gone"); optBtn(k).disabled = true; });
+  }
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // Step 1: offer three random experts; the lifeline is only spent once one is chosen
+  function phone() {
+    if (S.locked || S.used.phone) return;
+    const offer = shuffle(EXPERTS).slice(0, 3);
+    openModal(`
+      <h2>📞 Phone an Expert</h2>
+      <div class="sub">Three experts are available right now. Who do you want to call?</div>
+      <div class="picks">${offer.map((ex, j) => `
+        <button class="pickx" data-j="${j}"><b>${esc(ex.name)}</b><span>${esc(ex.blurb)}</span></button>`).join("")}
+      </div>
+      <button class="btn ghost" data-close style="margin-top:8px">Cancel</button>`);
+    document.querySelectorAll(".pickx").forEach(b => b.onclick = () => callExpert(offer[+b.dataset.j]));
+  }
+
+  // Step 2: the call itself
+  function callExpert(ex) {
+    S.used.phone = true; $("lPhone").disabled = true;
+    const q = S.set[S.i];
+    const zone = ex.home.includes(q.category) ? "home" : ex.adjacent.includes(q.category) ? "adjacent" : "far";
+    let ans = q.correct;
+    if (zone === "far" && Math.random() < (window.FAR_MISS_RATE ?? 0.03)) {
+      const wrong = [0, 1, 2, 3].filter(k => k !== q.correct && !S.removed.has(k));
+      if (wrong.length) ans = pick(wrong);
+    }
+    const line = pick(EXPERT_LINES[zone]).replace("{L}", LETTERS[ans]).replace("{T}", q.opts[ans]);
+    $("modal").innerHTML = `
+      <h2>📞 Calling ${esc(ex.name)}…</h2>
+      <div class="sub">${esc(ex.blurb)}</div>
+      <div class="ringing" id="ring"><span class="dots"><span></span><span></span><span></span></span> Connecting…</div>
+      <div class="quote hidden" id="quote">${esc(line)}</div>
+      <button class="btn hidden" id="hangup" data-close>Thanks! Back to the game</button>`;
+    setTimeout(() => {
+      if (!$("ring")) return;
+      $("ring").classList.add("hidden");
+      $("quote").classList.remove("hidden");
+      $("hangup").classList.remove("hidden");
+    }, 1400);
+  }
+
+  function audience() {
+    if (S.locked || S.used.aud) return;
+    S.used.aud = true; $("lAud").disabled = true;
+    const q = S.set[S.i];
+    const live = [0, 1, 2, 3].filter(k => !S.removed.has(k));
+    // the cohort's accuracy drops as questions get harder
+    let pc = Math.max(0.34, 0.9 - S.i * 0.04) + (Math.random() * 0.1 - 0.05);
+    const w = [0, 0, 0, 0];
+    const hasTrap = q.trapIdx >= 0 && live.includes(q.trapIdx);
+    if (hasTrap) {
+      const trapShare = 0.18 + S.i * 0.015 + Math.random() * 0.08;
+      pc = Math.max(0.3, pc - trapShare * 0.5);
+      w[q.trapIdx] = trapShare;
+    }
+    w[q.correct] = pc;
+    const others = live.filter(k => k !== q.correct && !(hasTrap && k === q.trapIdx));
+    let rest = Math.max(0, 1 - w.reduce((a, b) => a + b, 0));
+    others.forEach((k, j) => {
+      const share = j === others.length - 1 ? rest : rest * (0.3 + Math.random() * 0.5);
+      w[k] = share; rest -= share;
+    });
+    const tot = w.reduce((a, b) => a + b, 0) || 1;
+    let pct = w.map(x => Math.round(100 * x / tot));
+    const diff = 100 - pct.reduce((a, b) => a + b, 0);
+    pct[q.correct] += diff;
+    openModal(`
+      <h2>🎓 The grad students have voted</h2>
+      <div class="sub">An anonymous poll of the cohort. Trust it accordingly.</div>
+      <div class="poll">${[0, 1, 2, 3].map(k => `
+        <div class="bar"><span class="pct">${S.removed.has(k) ? "–" : pct[k] + "%"}</span>
+          <div class="fill" style="height:0%" data-h="${S.removed.has(k) ? 0 : pct[k]}"></div>
+          <span class="lab">${LETTERS[k]}</span></div>`).join("")}
+      </div>
+      <button class="btn" data-close>Back to the game</button>`);
+    requestAnimationFrame(() => setTimeout(() =>
+      document.querySelectorAll(".fill").forEach(f => f.style.height = (f.dataset.h * 0.8) + "%"), 30));
+  }
+
+  // ---------- wiring ----------
+  $("startBtn").onclick = newGame;
+  $("againBtn").onclick = newGame;
+  $("l5050").onclick = fifty;
+  $("lPhone").onclick = phone;
+  $("lAud").onclick = audience;
+  $("walkBtn").onclick = () => {
+    if (S.locked) return;
+    const amt = S.i > 0 ? money(PRIZES[S.i - 1]) : "$0";
+    openModal(`<h2>🚶 Walk away?</h2>
+      <div class="sub">You would leave with ${amt}.</div>
+      <div style="display:flex;gap:10px"><button class="btn" id="confirmWalk">Yes, take the money</button>
+      <button class="btn ghost" data-close>Keep playing</button></div>`);
+    $("confirmWalk").onclick = () => { closeModal(); walkAway(); };
+  };
+
+  document.addEventListener("keydown", e => {
+    if (!$("overlay").classList.contains("hidden")) { if (e.key === "Escape" || e.key === "Enter") closeModal(); return; }
+    if ($("game").classList.contains("hidden")) return;
+    const k = LETTERS.indexOf(e.key.toUpperCase());
+    if (k >= 0 && !S.locked) choose(k);
+    if (e.key === "Enter" && !$("feedback").classList.contains("hidden")) $("nextBtn").click();
+  });
+})();
+</script>
+</body>
+</html>
